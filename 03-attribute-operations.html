@@ -12,6 +12,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 
   <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,6 +114,9 @@
       "search-submit-button-title": "Submit"
     }
   }</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -175,10 +241,21 @@
         <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">3.1</span> Introduction</a></li>
-<li><a href="#vector-attribute-manipulation" class="nav-link" data-scroll-target="#vector-attribute-manipulation"> <span class="header-section-number">3.2</span> Vector attribute manipulation</a></li>
-<li><a href="#manipulating-raster-objects" class="nav-link" data-scroll-target="#manipulating-raster-objects"> <span class="header-section-number">3.3</span> Manipulating raster objects</a></li>
-<li><a href="#exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">3.4</span> Exercises</a></li>
+<li><a href="#prerequisites" class="nav-link active" data-scroll-target="#prerequisites"> <span class="header-section-number">3.1</span> Prerequisites</a></li>
+<li><a href="#introduction" class="nav-link" data-scroll-target="#introduction"> <span class="header-section-number">3.2</span> Introduction</a></li>
+<li><a href="#vector-attribute-manipulation" class="nav-link" data-scroll-target="#vector-attribute-manipulation"> <span class="header-section-number">3.3</span> Vector attribute manipulation</a>
+<ul class="collapse">
+<li><a href="#vector-attribute-subsetting" class="nav-link" data-scroll-target="#vector-attribute-subsetting"> <span class="header-section-number">3.3.1</span> Vector attribute subsetting</a></li>
+<li><a href="#vector-attribute-aggregation" class="nav-link" data-scroll-target="#vector-attribute-aggregation"> <span class="header-section-number">3.3.2</span> Vector attribute aggregation</a></li>
+<li><a href="#vector-attribute-joining" class="nav-link" data-scroll-target="#vector-attribute-joining"> <span class="header-section-number">3.3.3</span> Vector attribute joining</a></li>
+<li><a href="#creating-attributes-and-removing-spatial-information" class="nav-link" data-scroll-target="#creating-attributes-and-removing-spatial-information"> <span class="header-section-number">3.3.4</span> Creating attributes and removing spatial information</a></li>
+</ul></li>
+<li><a href="#manipulating-raster-objects" class="nav-link" data-scroll-target="#manipulating-raster-objects"> <span class="header-section-number">3.4</span> Manipulating raster objects</a>
+<ul class="collapse">
+<li><a href="#raster-subsetting" class="nav-link" data-scroll-target="#raster-subsetting"> <span class="header-section-number">3.4.1</span> Raster subsetting</a></li>
+<li><a href="#summarizing-raster-objects" class="nav-link" data-scroll-target="#summarizing-raster-objects"> <span class="header-section-number">3.4.2</span> Summarizing raster objects</a></li>
+</ul></li>
+<li><a href="#exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">3.5</span> Exercises</a></li>
 </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/geocompr/py/edit/main/03-attribute-operations.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -188,17 +265,414 @@
 <h1 class="title display-7"><span id="attr" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Attribute data operations</span></span></h1>
 </header>
 
-<section id="introduction" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<section id="prerequisites" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">3.1</span> Prerequisites</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_rows"</span>, <span class="dv">4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_columns"</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Packages…</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sample data…</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> gpd.read_file(<span class="st">"data/world.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="vector-attribute-manipulation" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="vector-attribute-manipulation"><span class="header-section-number">3.2</span> Vector attribute manipulation</h2>
+<section id="introduction" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.2</span> Introduction</h2>
 </section>
-<section id="manipulating-raster-objects" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="manipulating-raster-objects"><span class="header-section-number">3.3</span> Manipulating raster objects</h2>
+<section id="vector-attribute-manipulation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="vector-attribute-manipulation"><span class="header-section-number">3.3</span> Vector attribute manipulation</h2>
+<section id="vector-attribute-subsetting" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="vector-attribute-subsetting"><span class="header-section-number">3.3.1</span> Vector attribute subsetting</h3>
+<p>Subsetting rows by attribute…</p>
+<p>Selecting columns…</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>world[[<span class="st">"name_long"</span>, <span class="st">"geometry"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display" data-execution_count="4">
+<div>
+
+<table class="dataframe table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name_long</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Fiji</td>
+      <td>MULTIPOLYGON (((-180.00000 -16.55522, -179.917...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tanzania</td>
+      <td>MULTIPOLYGON (((33.90371 -0.95000, 31.86617 -1...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>Trinidad and Tobago</td>
+      <td>MULTIPOLYGON (((-61.68000 10.76000, -61.66000 ...</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>South Sudan</td>
+      <td>MULTIPOLYGON (((30.83385 3.50917, 31.24556 3.7...</td>
+    </tr>
+  </tbody>
+</table>
+<p>177 rows × 2 columns</p>
+</div>
+</div>
+</div>
 </section>
-<section id="exercises" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.4</span> Exercises</h2>
+<section id="vector-attribute-aggregation" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="vector-attribute-aggregation"><span class="header-section-number">3.3.2</span> Vector attribute aggregation</h3>
+<p>Aggregation without geometry…</p>
+</section>
+<section id="vector-attribute-joining" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="vector-attribute-joining"><span class="header-section-number">3.3.3</span> Vector attribute joining</h3>
+<p>Join by attribute…</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>coffee_data <span class="op">=</span> pd.read_csv(<span class="st">"data/coffee_data.csv"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>coffee_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display" data-execution_count="6">
+<div>
+
+<table class="dataframe table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name_long</th>
+      <th>coffee_production_2016</th>
+      <th>coffee_production_2017</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Angola</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bolivia</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Zimbabwe</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Others</td>
+      <td>23.0</td>
+      <td>26.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>47 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>Join by <code>"name_long"</code> column…</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>world_coffee <span class="op">=</span> pd.merge(world, coffee_data, on <span class="op">=</span> <span class="st">"name_long"</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>world_coffee</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display" data-execution_count="7">
+<div>
+
+<table class="dataframe table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>iso_a2</th>
+      <th>name_long</th>
+      <th>continent</th>
+      <th>...</th>
+      <th>geometry</th>
+      <th>coffee_production_2016</th>
+      <th>coffee_production_2017</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FJ</td>
+      <td>Fiji</td>
+      <td>Oceania</td>
+      <td>...</td>
+      <td>MULTIPOLYGON (((-180.00000 -16.55522, -179.917...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TZ</td>
+      <td>Tanzania</td>
+      <td>Africa</td>
+      <td>...</td>
+      <td>MULTIPOLYGON (((33.90371 -0.95000, 31.86617 -1...</td>
+      <td>81.0</td>
+      <td>66.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>TT</td>
+      <td>Trinidad and Tobago</td>
+      <td>North America</td>
+      <td>...</td>
+      <td>MULTIPOLYGON (((-61.68000 10.76000, -61.66000 ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>SS</td>
+      <td>South Sudan</td>
+      <td>Africa</td>
+      <td>...</td>
+      <td>MULTIPOLYGON (((30.83385 3.50917, 31.24556 3.7...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>177 rows × 13 columns</p>
+</div>
+</div>
+</div>
+<p>Plot…</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> world.plot(color <span class="op">=</span> <span class="st">"white"</span>, edgecolor <span class="op">=</span> <span class="st">"lightgrey"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>world_coffee.plot(ax <span class="op">=</span> base, column <span class="op">=</span> <span class="st">"coffee_production_2017"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="03-attribute-operations_files/figure-html/cell-9-output-1.png" width="577" height="293"></p>
+</div>
+</div>
+</section>
+<section id="creating-attributes-and-removing-spatial-information" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="creating-attributes-and-removing-spatial-information"><span class="header-section-number">3.3.4</span> Creating attributes and removing spatial information</h3>
+<p>Calculate new column…</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>world2 <span class="op">=</span> world.copy()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>world2[<span class="st">"pop_dens"</span>] <span class="op">=</span> world2[<span class="st">"pop"</span>] <span class="op">/</span> world2[<span class="st">"area_km2"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Unite columns…</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>world2[<span class="st">"con_reg"</span>] <span class="op">=</span> world[<span class="st">"continent"</span>] <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> world2[<span class="st">"region_un"</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>world2 <span class="op">=</span> world2.drop([<span class="st">"continent"</span>, <span class="st">"region_un"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Split column…</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>world2[[<span class="st">"continent"</span>, <span class="st">"region_un"</span>]] <span class="op">=</span> world2[<span class="st">"con_reg"</span>].<span class="bu">str</span>.split(<span class="st">":"</span>, expand<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rename…</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>world2.rename(columns<span class="op">=</span>{<span class="st">"name_long"</span>: <span class="st">"name"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display" data-execution_count="12">
+<div>
+
+<table class="dataframe table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>iso_a2</th>
+      <th>name</th>
+      <th>subregion</th>
+      <th>...</th>
+      <th>con_reg</th>
+      <th>continent</th>
+      <th>region_un</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FJ</td>
+      <td>Fiji</td>
+      <td>Melanesia</td>
+      <td>...</td>
+      <td>Oceania:Oceania</td>
+      <td>Oceania</td>
+      <td>Oceania</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TZ</td>
+      <td>Tanzania</td>
+      <td>Eastern Africa</td>
+      <td>...</td>
+      <td>Africa:Africa</td>
+      <td>Africa</td>
+      <td>Africa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>TT</td>
+      <td>Trinidad and Tobago</td>
+      <td>Caribbean</td>
+      <td>...</td>
+      <td>North America:Americas</td>
+      <td>North America</td>
+      <td>Americas</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>SS</td>
+      <td>South Sudan</td>
+      <td>Eastern Africa</td>
+      <td>...</td>
+      <td>Africa:Africa</td>
+      <td>Africa</td>
+      <td>Africa</td>
+    </tr>
+  </tbody>
+</table>
+<p>177 rows × 13 columns</p>
+</div>
+</div>
+</div>
+<p>Renaming all columns…</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>new_names <span class="op">=</span>[<span class="st">"i"</span>, <span class="st">"n"</span>, <span class="st">"c"</span>, <span class="st">"r"</span>, <span class="st">"s"</span>, <span class="st">"t"</span>, <span class="st">"a"</span>, <span class="st">"p"</span>, <span class="st">"l"</span>, <span class="st">"gP"</span>, <span class="st">"geom"</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>world.columns <span class="op">=</span> new_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dropping geometry…</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode" id="cb14"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(world.drop(columns<span class="op">=</span><span class="st">"geom"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display" data-execution_count="14">
+<div>
+
+<table class="dataframe table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>i</th>
+      <th>n</th>
+      <th>c</th>
+      <th>...</th>
+      <th>p</th>
+      <th>l</th>
+      <th>gP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FJ</td>
+      <td>Fiji</td>
+      <td>Oceania</td>
+      <td>...</td>
+      <td>885806.0</td>
+      <td>69.960</td>
+      <td>8222.253784</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TZ</td>
+      <td>Tanzania</td>
+      <td>Africa</td>
+      <td>...</td>
+      <td>52234869.0</td>
+      <td>64.163</td>
+      <td>2402.099404</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>TT</td>
+      <td>Trinidad and Tobago</td>
+      <td>North America</td>
+      <td>...</td>
+      <td>1354493.0</td>
+      <td>70.426</td>
+      <td>31181.821196</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>SS</td>
+      <td>South Sudan</td>
+      <td>Africa</td>
+      <td>...</td>
+      <td>11530971.0</td>
+      <td>55.817</td>
+      <td>1935.879400</td>
+    </tr>
+  </tbody>
+</table>
+<p>177 rows × 10 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="manipulating-raster-objects" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="manipulating-raster-objects"><span class="header-section-number">3.4</span> Manipulating raster objects</h2>
+<section id="raster-subsetting" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="raster-subsetting"><span class="header-section-number">3.4.1</span> Raster subsetting</h3>
+<p>Subsetting by row/column…</p>
+</section>
+<section id="summarizing-raster-objects" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="summarizing-raster-objects"><span class="header-section-number">3.4.2</span> Summarizing raster objects</h3>
+<p>Global summary of raster values (mean, etc.)…</p>
+<p>Histogram of raster values…</p>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.5</span> Exercises</h2>
 
 
 </section>
